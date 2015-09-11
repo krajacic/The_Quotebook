@@ -1,5 +1,6 @@
 package thedailyquote.com.thequotebook;
 
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -9,7 +10,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.app.Activity;
 import android.content.Intent;
-import android.widget.ShareActionProvider;
+import android.support.v7.widget.ShareActionProvider;
 
 import java.util.ArrayList;
 
@@ -57,17 +58,15 @@ public class Quotebook extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_quotebook, menu);
-
+        MenuItem item = menu.findItem(R.id.share);
         /** Getting the actionprovider associated with the menu item whose id is share */
-        mShareActionProvider = (ShareActionProvider) menu.findItem(R.id.share).getActionProvider();
-
+        mShareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(item);
         /** Setting a share intent */
         mShareActionProvider.setShareIntent(getDefaultShareIntent());
-
         return super.onCreateOptionsMenu(menu);
-
-
     }
+
+
 
     /** Returns a share intent */
     private Intent getDefaultShareIntent(){
