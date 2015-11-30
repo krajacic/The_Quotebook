@@ -73,7 +73,8 @@ public class Quotebook extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_SUBJECT, "SUBJECT");
-        intent.putExtra(Intent.EXTRA_TEXT,"Extra Text");
+
+        intent.putExtra(Intent.EXTRA_TEXT, "EXTRA TEXT");
         return intent;
     }
 
